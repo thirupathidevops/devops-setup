@@ -1,0 +1,75 @@
+install tree using ansiblle (redhat)
+
+ hosts: linux
+  become: true
+  become_user: root
+  tasks:
+   - name: yum update && yum install tree -y
+     apt:
+       update_cache: yes
+       name: tree
+       state: present
+
+install httpd using ansible (redhat)
+---
+- hosts: webservers
+  remote_user: root
+
+  tasks:
+  - name: ensure apache is at the latest version
+    yum: name=httpd state=latest
+
+. sudo vi installJenkins.yml
+Copy the below yellow highlighted in the above file:     (ubuntu)
+
+---
+ - hosts: My_Group
+ 
+   tasks:
+    - name: ensure the jenkins apt repository key is installed
+      apt_key: url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present
+      become: yes
+
+    - name: ensure the repository is configured
+      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+      become: yes
+
+    - name: ensure jenkins is installed
+      apt: name=jenkins update_cache=yes
+      become: yes
+
+    - name: ensure jenkins is running
+      service: name=jenkins state=started
+
+
+
+sudo vi installMaven.yml (UBUNTU)
+---
+- hosts: My_Group
+  tasks:
+    - name: Install Maven using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - maven
+
+install java                     (UBUNTU)
+---
+- hosts: Java_Group
+
+  tasks:
+  - name: Update APT package manager repositories cache
+    become: true
+    apt:
+      update_cache: yes
+
+  - name: Install OpenJDK Java
+    become: yes
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items:
+     openjdk-8-jdk

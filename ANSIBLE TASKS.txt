@@ -1,0 +1,31 @@
+install git using ansible playbook  [rhel]
+---
+- hosts: dev
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install git
+      action: yum name=git state=present
+
+
+install httpd using ansible playbook 
+
+---
+- hosts: dev
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install httpd
+      action: yum name=httpd state=latest
+
+insatll tree using ansible playbook
+
+- hosts: dev
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install tree
+      action: yum name=tree state=latest

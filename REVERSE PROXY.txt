@@ -1,0 +1,25 @@
+ reverse proxy
+    ngnix install 
+first install epel
+https://docs.fedoraproject.org/en-US/epel/
+
+yum install nginx -y
+
+vi /etc/nginx/nginx.conf
+sever total delete
+
+vi /etc/nginx/conf.d/jenkins.conf
+server name : ltijenkins
+
+
+sytemctl start nginx
+systemctl restart nginx
+
+
+getenforce
+
+setenforce permissive 
+
+
+
+

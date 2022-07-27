@@ -1,0 +1,57 @@
+yum install -y httpd httpd-tools php gcc glibc glibc-common gd gd-devel make net-snmp
+useradd nagios
+passwd nagios
+groupadd nagcmd
+usermod -G nagcmd nagios
+usermod -G nagcmd apache
+mkdir /root/nagios
+cd /root/nagios
+ wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.5.tar.gz
+wget https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
+tar -xvf nagios-4.4.5.tar.gz
+tar -xvf nagios-plugins-2.2.1.tar.gz
+cd nagios-4.4.5/
+./configure --with-command-group=nagcmd
+make all
+make install
+make install-init
+make install-commandmode
+make install-config
+vi /usr/local/nagios/etc/objects/contacts.cfg
+make install-webconf
+htpasswd -s -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+service httpd start
+or
+systemctl start httpd.service
+cd /root/nagios
+cd nagios-plugins-2.2.1/
+./configure --with-nagios-user=nagios --with-nagios-group=nagios
+make
+make install
+/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+chkconfig --add nagios
+chkconfig --level 35 nagios on
+chkconfig --add httpd
+chkconfig --level 35 httpd on
+systemctl enable nagios
+systemctl enable httpd
+service nagios start        ( or)
+systemctl start nagios.service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

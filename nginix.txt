@@ -1,0 +1,26 @@
+$ sudo yum install epel-release
+
+$ sudo yum update
+
+$ sudo yum install nginx
+
+sudo nginx -v
+nginx version: nginx/1.6.3
+
+sudo vi /etc/yum.repos.d/nginx.repo
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/mainline/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+
+sudo yum update
+sudo yum install nginx
+
+systemctl restart nginx
+systemctl status nginx
+
+sudo nginx
+$ curl -I 127.0.0.1
+HTTP/1.1 200 OK
+Server: nginx/1.13.8

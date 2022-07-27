@@ -1,0 +1,7 @@
+ansible rooles
+mkdir -p playbook/roles/webserver/tasks
+cd playbook
+touch master.yml
+&&
+touch roles/webserver/tasks/main.yml
+vi roles/webserver/tasks/main.yml

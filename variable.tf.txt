@@ -1,0 +1,12 @@
+provider "aws" {
+ region = "ap-south-1"
+}
+resource "aws_instance" "instance" {
+  ami           = "ami-079b5e5b3971bd10d"
+  instance_type = "t2.micro"
+}
+variable "instance_type" {
+description = "instance type t2.micro"
+  type    = string
+  default = "t2.micro"
+}

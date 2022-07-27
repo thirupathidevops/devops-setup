@@ -1,0 +1,17 @@
+yum install -y gcc-c++ make
+    2  curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
+    3  node -v
+    4  yum install nodejs -y
+    5  git clone https://github.com/nodejs/examples.git
+    6  yum install git -y
+git clone
+ll
+cd <file name>
+ll
+npm install
+node app.js
+npm start
+or
+nohup npm start &
+
+public ip + port open in browser

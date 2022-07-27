@@ -1,0 +1,28 @@
+docker install through ansible
+---
+- name: Install docker on RHEL
+  hosts: localhost
+  become: yes
+- name: Install Docker
+      package:
+        name: docker-ce
+        state: latest
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+ANSIBLE PLAYBOOK  INSTALL GIT
+
+- hosts: "{{ hostname }}"
+  gather_facts: False
+  vars:
+    - packages: ["git", "nmap"]
+  tasks:
+    - name: Installing {{ packages }} on {{ hostname }}
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ packages }}"

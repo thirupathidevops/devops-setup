@@ -1,0 +1,49 @@
+ wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.58/bin/apache-tomcat-9.0.58.tar.gz
+    3  ls
+    4  tar -xzvf apache-tomcat-9.0.58.tar.gz
+    5  clear
+    6  ls
+    7  cd apache-tomcat-9.0.58/
+    8  ls
+    9  ls
+   10  ls -ll
+   11  cd webapps/
+   12  ls
+   13  clear
+   14  ls
+   15  cd ..
+   16  ls
+   17  cd bin/
+   18  ls
+   19  ./startup.sh
+   20  whciih java
+   21  which java
+   22  yum install jdk
+   23  amzonlinux-extras list
+   24  amzon-linux-extras list
+   25  amazon-linux-extras list
+   26  amazon-linux-extras install java-openjdk11
+   27  clear
+   28  ls
+   29  ehco $JAVA_HOME
+   30  echo $JAVA_HOME
+   31  which java
+   32  clear
+   33  ls
+   34  ls
+   35  clear
+   36  ls
+   37  ls
+   38  ls
+   39  ls
+   40  clear
+   41  ls
+   42  ./startup.sh
+   43  ls
+   44  ls
+   45  cd ..
+   46  ls
+   47  cd logs
+   48  clear
+   49  ls
+   50  tail -100f catalina.out
